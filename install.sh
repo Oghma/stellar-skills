@@ -89,7 +89,7 @@ warn()    { printf '%s\n' "${YELLOW}${*}${RESET}"; }
 error()   { printf '%s\n' "${RED}${*}${RESET}" >&2; }
 
 is_interactive() {
-  [[ -t 0 && "$assume_yes" -eq 0 ]]
+  [[ "$assume_yes" -eq 0 ]] && { [[ -t 0 ]] || [[ -e /dev/tty ]]; }
 }
 
 # ── Usage ───────────────────────────────────────────────────────────
@@ -216,7 +216,7 @@ prompt_if_empty() {
     return 0
   fi
 
-  read -r -p "${BOLD}${prompt}${RESET} [${default_value}]: " current_value
+  read -r -p "${BOLD}${prompt}${RESET} [${default_value}]: " current_value </dev/tty
   current_value="${current_value:-$default_value}"
   printf -v "$var_name" '%s' "$current_value"
 }
@@ -274,7 +274,7 @@ prompt_skills_menu() {
       printf '  %d) %s %-26s %s\n' "$((i + 1))" "$mark" "${all_skills[$i]}" "${CYAN}${descriptions[$i]}${RESET}"
     done
     printf '> '
-    read -r choice
+    read -r choice </dev/tty
 
     case "$(printf '%s' "$choice" | tr '[:upper:]' '[:lower:]')" in
       d|"")
@@ -518,7 +518,7 @@ done
 
 if is_interactive; then
   printf '\n'
-  read -r -p "${BOLD}Proceed with installation?${RESET} [Y/n]: " confirm
+  read -r -p "${BOLD}Proceed with installation?${RESET} [Y/n]: " confirm </dev/tty
   case "$(printf '%s' "$confirm" | tr '[:upper:]' '[:lower:]')" in
     n|no)
       info "Installation cancelled."
