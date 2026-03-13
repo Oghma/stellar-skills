@@ -16,7 +16,7 @@ Ready-made AI coding skills for Soroban and Stellar CLI workflows — drop them 
 Run the one-liner from the root of your project:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/master/install.sh | bash
 ```
 
 The interactive installer will ask you:
@@ -40,7 +40,7 @@ Skills are copied to the appropriate directory:
 Pass flags to skip prompts (useful for CI or scripted setups):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/main/install.sh | \
+curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/master/install.sh | \
   bash -s -- --target claude --scope-claude project --skills all --on-exists replace --yes
 ```
 

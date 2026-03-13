@@ -15,7 +15,7 @@ fi
 
 if [[ -z "$repo_root" ]]; then
   repo_slug="${STELLAR_SKILLS_REPO:-Oghma/stellar-skills}"
-  repo_ref="${STELLAR_SKILLS_REF:-main}"
+  repo_ref="${STELLAR_SKILLS_REF:-master}"
   archive_url="${STELLAR_SKILLS_ARCHIVE_URL:-https://codeload.github.com/${repo_slug}/tar.gz/${repo_ref}}"
 
   download_tool=""
@@ -107,8 +107,8 @@ Options:
   -h, --help
 
 Remote:
-  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/main/install.sh | bash
-  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/main/install.sh | bash -s -- --target codex --skills all --yes
+  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/master/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/master/install.sh | bash -s -- --target codex --skills all --yes
 
 Local:
   bash install.sh
@@ -575,4 +575,4 @@ for selected_target in "${selected_targets[@]}"; do
 done
 printf '\n'
 printf 'To update skills later, re-run:\n'
-printf '  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/main/install.sh | bash\n'
+printf '  curl -fsSL https://raw.githubusercontent.com/Oghma/stellar-skills/master/install.sh | bash\n'
